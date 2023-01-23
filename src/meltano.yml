@@ -5,3 +5,22 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-dynamodb
+    variant: singer-io
+    pip_url: tap-dynamodb
+    config:
+      use_local_dynamo: true
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      host: localhost
+      user: admin
+      password: admin
+      dbname: base
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
