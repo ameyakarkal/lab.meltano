@@ -18,4 +18,30 @@ mkdir src
 cd src
 meltano init .
 ```
+**local dynamodb**
 
+- hosting local dynamodb
+- adding dynamoDB tap
+- gui for dynamoDB : [nosql workbench](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html)
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
+
+
+```bash
+
+# install nosql workbench
+brew install --cask nosql-workbench
+```
+
+**local postgres**
+- added postgres docker compose service
+- added meltano target-postgres
+- gui for postgres : datagrip
+
+```bash
+meltano add loader target-postgres
+```
+
+
+## shipping to production
+- Reference : https://docs.meltano.com/guide/production discusses how to ship your meltano project to production

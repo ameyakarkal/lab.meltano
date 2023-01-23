@@ -5,3 +5,27 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-dynamodb
+    variant: singer-io
+    pip_url: tap-dynamodb
+    config:
+      use_local_dynamo: true
+      account_id: fake_account_id
+      external_id: fake_external_id
+      role_name: fake_role_name
+      region_name: ca-central-1
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      host: localhost
+      user: admin
+      password: admin
+      dbname: base
+      port: 5555
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
